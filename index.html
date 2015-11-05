@@ -1,12 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>CiLo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./main.css">
   </head>
-  <body>
-    <script type="text/javascript" src="script.js">
+  <body ng-controller="mainController">
 
-    </script>
+
+    <section class="center header">
+      <h1>Welcome to CiLo!</h1>
+    </section>
+
+    <section class="container-container">
+      <section>
+
+        <section class="rules-section">
+          <section class="rules-margin">
+            <h3 class="rules-title">Rules</h3>
+            <p>This is a dice game! These are the rules!</p>
+            <p class="smaller-font">In this dice game you get 3 dice. Whoever has the greatest sum of dice wins. If you roll 4, 5, 6 you win immediately. If you roll a 1, 2, 3 you lose immediately! Now lets play!</p>
+          </section>
+        </section>
+
+        <section class="main-content row">
+          <!-- <section class="row"> -->
+            <section class="col-md-4">
+              <section class="margin-center width">
+                <h2 class="text-center">Player</h2>
+                <p class="text-center">Player Score:<br>{{playerScore}}</p>
+              </section>
+                
+              <section class="text-center player-roll">
+                <h3 class="text-center">Player Roll</h3>
+                <ul ng-repeat="die in playerDice track by $index">
+                  <li>{{die}}</li>
+                </ul>
+              </section>
+            </section>  <!-- end col-6 -->
+
+            <section class="col-md-4">
+              <section class="center margin-top">
+                <button type="submit" ng-click="game()" class="btn btn-success btn-lg play-btn">Play</button>
+              </section>
+
+              <section class="center height row">
+                <section class="col-md-6">
+                  <h2>Who's winning?</h2>
+                  <p>{{whosWinning}}</p>
+                </section>
+                <section class="col-md-6">
+                  <h2>Who won this round?</h2>
+                  <p>{{result}}</p>
+                </section>
+              </section>
+              <section class="center">
+                <button type="submit" ng-click="newGame()" class="btn btn-warning btn-lg new-game-btn">New game</button>
+              </section>
+            </section>
+
+
+            <section class="col-md-4">
+              <section class="margin-center width">
+                <h2 class="text-center">Computer</h2>
+                <p class="text-center">Computer Score:<br>{{computerScore}}</p>
+              </section>
+
+              <section class="text-center player-roll">
+                <h3 class="text-center">Computer Roll</h3>
+                <ul ng-repeat="die in computerDice track by $index">
+                  <li>{{die}}</li>
+                </ul>
+              </section>
+            </section> <!-- end col-6 -->
+
+          </section> <!-- end row -->
+        </section>
+      </section> <!-- end container -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+     <script src="./spec/game.spec.js"></script>
   </body>
 </html>
